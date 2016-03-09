@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoForm from './TodoForm.jsx';
+import TodoList from './TodoList.jsx';
 
 class Todo extends React.Component {
 
@@ -8,8 +9,7 @@ class Todo extends React.Component {
     this.addItem = this.addItem.bind(this);
 
     var todoItems = [
-      {key: 1, text: 'Homework'},
-      {key: 2, text: 'Clean room'},
+      
     ]
 
     this.state = {
@@ -22,8 +22,6 @@ class Todo extends React.Component {
 
   addItem (item) {
     let newItems = this.state.items.concat([item]);
-    //let newItem = TODO: Get item from form;
-    //console.log(newItems);
 
     this.setState({
       items: newItems,
@@ -39,6 +37,7 @@ class Todo extends React.Component {
       <div>
         <h2>Todo List</h2>
         <TodoForm addItem={this.addItem} tid={this.state.key} />
+        <TodoList items={this.state.items} />
       </div>
     );
   }
