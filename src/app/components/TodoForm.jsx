@@ -12,7 +12,6 @@ class TodoForm extends React.Component {
   handleForm(e) {
     e.preventDefault();
     let item = {
-      key : this.props.tid + 1,
       text : this.refs.item.value
     }
     //console.log(this.props);
