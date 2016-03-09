@@ -9,55 +9,60 @@ class Todo extends React.Component {
     super();
     this.addItem = this.addItem.bind(this);
     this.loadTodos = this.loadTodos.bind(this);
-
     this.state = {
       items: []
     };
+
   }
 
   loadTodos() {
     var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos');
-    let itemList = [];
+    // TODO: Fix binding
+    var that = this;
 
-    dataRef.on("value", function(snapshot) {
-
+    dataRef.on('value', function(snapshot) {
+      var itemList = [];
       snapshot.forEach(function(item) {
-        console.log(item.key());
+        var key = item.key();
         var item = item.val();
-        //item.id = item.key();
-
+        item.key = key;
         itemList.push(item);
+
       });
 
-    }, function (errorObject) {
-      console.log("The read failed: " + errorObject.code);
+      that.setState({
+        items: itemList
+      });
     });
 
-    this.setState({
-      items: itemList,
-    });
+
+
+
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.loadTodos();
+
   }
+
+  // componentWillMount() {
+  //   this.firebaseRef = new Firebase("https://fiery-inferno-3889.firebaseio.com/todos");
+  //   this.firebaseRef.on("child_added", function(dataSnapshot) {
+  //     this.items.push(dataSnapshot.val());
+  //     this.setState({
+  //       items: this.items
+  //     });
+  //   }.bind(this));
+  // }
 
   addItem (item) {
     var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos');
-    let newItems = this.state.items.concat([item]);
-
-    this.setState({
-      items: newItems
-    });
-
-    console.log(newItems.length);
-    console.log(this.state.items);
-
     dataRef.push(item);
+
+    this.loadTodos();
   }
 
   render() {
-    console.log('render');
     return (
       <div>
         <h2>Todo List</h2>

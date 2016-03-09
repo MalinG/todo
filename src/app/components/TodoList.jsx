@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoItem from './TodoItem.jsx';
 
 class TodoList extends React.Component {
 
@@ -10,16 +11,13 @@ class TodoList extends React.Component {
 
   render() {
     let listItems = this.props.items.map(function (item) {
-      console.log(item.text);
-      console.log(item.key);
       return (
-            <li key={item.key} data-key={item.key} className="Todo-item">{item.text}</li>
-
+            <TodoItem key={item.key} text={item.text} />
       );
     });
 
     return (
-      <div>{listItems}</div>
+      <ul>{listItems}</ul>
     );
   }
 
