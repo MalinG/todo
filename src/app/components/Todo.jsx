@@ -60,7 +60,7 @@ class Todo extends React.Component {
   render() {
     return (
       <div className="Todo-inner">
-        <h2>Todo List</h2>
+        <h2>Stuff to get done</h2>
         <TodoForm addItem={this.addItem} />
         <TodoList items={this.state.items} deleteItem={this.deleteItem}/>
       </div>

@@ -27834,7 +27834,7 @@
 	        _react2.default.createElement(
 	          'h2',
 	          null,
-	          'Todo List'
+	          'Stuff to get done'
 	        ),
 	        _react2.default.createElement(_TodoForm2.default, { addItem: this.addItem }),
 	        _react2.default.createElement(_TodoList2.default, { items: this.state.items, deleteItem: this.deleteItem })
@@ -28410,7 +28410,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".Todo {\n  width: 600px;\n  max-width: 80%;\n  background: #606873;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-family: sans-serif;\n  border-radius: 5px; }\n  .Todo h2 {\n    color: white;\n    text-align: center;\n    margin: 0; }\n\n.Todo-inner {\n  margin: 40px; }\n\n.Todo-formItem {\n  position: relative; }\n\n.Todo-input {\n  padding: 20px 50px 20px 20px;\n  border: none;\n  width: 100%;\n  border-radius: 5px;\n  font-size: 16px;\n  line-height: 1.6;\n  margin: 10px 0; }\n\n.Todo-list {\n  padding: 0;\n  list-style: none; }\n\n.Todo-item {\n  padding: 20px;\n  background: white;\n  margin: 10px 0;\n  border-radius: 5px;\n  position: relative; }\n\n.Todo-text {\n  display: inline-block;\n  margin: 0 20px;\n  padding: 0 85px 0 30px;\n  line-height: 1.6; }\n\n.Todo-button {\n  color: white;\n  height: 50px;\n  width: 50px;\n  border-radius: 50%;\n  background: #48CEC1;\n  border: 3px solid #3ABDAF;\n  position: absolute;\n  right: 10px;\n  top: 50%;\n  transform: translateY(-50%); }\n\n.Todo-button--check {\n  left: 10px;\n  right: auto;\n  background: #FAB154;\n  border: 3px solid #F49B42; }\n\n.Todo-button--delete {\n  background: #ED5465;\n  border: 3px solid #D8434D; }\n\n.Todo-button--edit {\n  right: 65px;\n  background: #CB93EC;\n  border: 3px solid #B377D8; }\n", ""]);
+	exports.push([module.id, ".Todo {\n  width: 600px;\n  max-width: 80%;\n  background: #606873;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-family: sans-serif;\n  border-radius: 5px; }\n  .Todo h2 {\n    color: white;\n    text-align: center; }\n\n.Todo-inner {\n  margin: 40px; }\n\n.Todo-formItem {\n  position: relative; }\n\n.Todo-input {\n  padding: 20px 50px 20px 20px;\n  border: none;\n  width: 100%;\n  border-radius: 5px;\n  font-size: 16px;\n  line-height: 1.6;\n  margin: 10px 0; }\n\n.Todo-list {\n  padding: 0;\n  list-style: none; }\n\n.Todo-item {\n  padding: 20px;\n  background: white;\n  margin: 10px 0;\n  border-radius: 5px;\n  position: relative; }\n\n.Todo-text {\n  display: inline-block;\n  margin: 0 20px;\n  padding: 0 85px 0 30px;\n  line-height: 1.6; }\n\n.Todo-button {\n  color: white;\n  height: 50px;\n  width: 50px;\n  border-radius: 50%;\n  background: #48CEC1;\n  border: 3px solid #3ABDAF;\n  position: absolute;\n  right: 10px;\n  top: 50%;\n  transform: translateY(-50%); }\n\n.Todo-button--check {\n  left: 10px;\n  right: auto;\n  background: #FAB154;\n  border: 3px solid #F49B42; }\n\n.Todo-button--delete {\n  background: #ED5465;\n  border: 3px solid #D8434D; }\n\n.Todo-button--edit {\n  right: 65px;\n  background: #CB93EC;\n  border: 3px solid #B377D8; }\n", ""]);
 	
 	// exports
 
