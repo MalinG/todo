@@ -17,6 +17,7 @@ class Todo extends React.Component {
   }
 
   loadTodos() {
+    console.log('loading');
     var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos');
     // TODO: Fix binding
     var that = this;
@@ -50,11 +51,15 @@ class Todo extends React.Component {
   }
 
   deleteItem (id) {
-    console.log(id);
     var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos/' + id);
 
     dataRef.remove();
     this.loadTodos();
+  }
+
+  checkItem (id, val) {
+    var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos/' + id);
+    dataRef.update({checked: val});
   }
 
   render() {
@@ -62,7 +67,7 @@ class Todo extends React.Component {
       <div className="Todo-inner">
         <h2>Stuff to get done</h2>
         <TodoForm addItem={this.addItem} />
-        <TodoList items={this.state.items} deleteItem={this.deleteItem}/>
+        <TodoList items={this.state.items} deleteItem={this.deleteItem} checkItem={this.checkItem}/>
       </div>
     );
   }

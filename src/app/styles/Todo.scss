@@ -29,7 +29,7 @@
   border: none;
   width: 100%;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 1em;
   line-height: 1.6;
   margin: 10px 0;
 }
@@ -47,11 +47,22 @@
   position: relative;
 }
 
+.Todo-item--checked {
+  background: rgba(white, 0.5);
+}
+
 .Todo-text {
-  display: inline-block;
   margin: 0 20px;
   padding: 0 75px 0 30px;
   line-height: 1.6;
+  font-size: 1em;
+  width: 100%;
+  border: none;
+
+  .Todo-item--checked & {
+    color: #999;
+    font-style: italic;
+  }
 }
 
 .Todo-button {
@@ -83,6 +94,10 @@
   &:hover {
     background: #3ABDAF;
   }
+
+  .Todo-item--checked & {
+    background: #3ABDAF;
+  }
 }
 
 .Todo-button--delete {
@@ -100,6 +115,10 @@
 
   &:hover {
     background: darken(#B377D8, 10%);
+  }
+
+  .Todo-item--checked & {
+    display: none;
   }
 
 }

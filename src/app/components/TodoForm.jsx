@@ -10,11 +10,11 @@ class TodoForm extends React.Component {
   handleForm(e) {
     e.preventDefault();
     let item = {
-      text : this.refs.text.value
+      text : this.refs.text.value,
+      checked : 0
     }
 
     this.props.addItem(item);
-    // Reset input field
     this.refs.text.value = '';
   }
 

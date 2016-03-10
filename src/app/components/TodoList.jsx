@@ -14,7 +14,12 @@ class TodoList extends React.Component {
     let listItems = this.props.items.map(function (item) {
 
       return (
-            <TodoItem key={item.key} id={item.key} text={item.text} deleteItem={this.props.deleteItem} />
+            <TodoItem key={item.key}
+                      id={item.key}
+                      text={item.text}
+                      checked={item.checked}
+                      checkItem={this.props.checkItem}
+                      deleteItem={this.props.deleteItem} />
       );
     }.bind(this));
 
