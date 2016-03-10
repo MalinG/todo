@@ -1,16 +1,17 @@
 .Todo {
   width: 600px;
   max-width: 80%;
-  background: #606873;
+  background:#ddd;
+  color: #222;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   border-radius: 5px;
 
   h2 {
-    color: white;
+    //color: white;
     text-align: center;
   }
 }
@@ -49,38 +50,85 @@
 .Todo-text {
   display: inline-block;
   margin: 0 20px;
-  padding: 0 85px 0 30px;
+  padding: 0 75px 0 30px;
   line-height: 1.6;
 }
 
 .Todo-button {
   color: white;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  background: #48CEC1;
-  border: 3px solid #3ABDAF;
+  border: none;
+  background: #3BB1D9;
+
   position: absolute;
   right: 10px;
   top: 50%;
-  transform: translateY(-50%)
+  transform: translateY(-50%);
+  font-size: 0;
+  cursor: pointer;
+
+  &:hover {
+    background: darken(#3BB1D9, 10%);
+  }
 
 }
 
 .Todo-button--check {
   left: 10px;
   right: auto;
-  background: #FAB154;
-  border: 3px solid #F49B42;
+  background: #DDD;
+
+  &:hover {
+    background: #3ABDAF;
+  }
 }
 
 .Todo-button--delete {
   background: #ED5465;
-  border: 3px solid #D8434D;
+
+  &:hover {
+    background: darken(#ED5465, 10%);
+  }
+  //border: 3px solid #D8434D;
 }
 
 .Todo-button--edit {
-  right: 65px;
-  background: #CB93EC;
-  border: 3px solid #B377D8;
+  right: 55px;
+  background: #B377D8;
+
+  &:hover {
+    background: darken(#B377D8, 10%);
+  }
+
+}
+
+.Todo-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+}
+
+.Todo-icon--add {
+  background-image: url(../images/add.svg);
+  background-size: cover;
+}
+
+.Todo-icon--check {
+  background-image: url(../images/check.svg);
+  background-size: cover;
+}
+
+.Todo-icon--edit {
+  background-image: url(../images/edit.svg);
+  background-size: cover;
+}
+
+.Todo-icon--delete {
+  background-image: url(../images/remove.svg);
+  background-size: cover;
 }

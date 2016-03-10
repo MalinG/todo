@@ -24,7 +24,10 @@ class TodoForm extends React.Component {
         <form ref="todoForm" id="todoForm" className="Todo-form" onSubmit={this.handleForm}>
           <div className="Todo-formItem">
             <input className="Todo-input" ref="text" type="text" placeholder="Title" />
-            <button type="submit" className="Todo-button">Add</button>
+            <button type="submit" className="Todo-button">
+              <i className="Todo-icon Todo-icon--add"></i>
+              Add
+            </button>
           </div>
         </form>
       </div>

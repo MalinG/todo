@@ -27914,6 +27914,7 @@
 	            _react2.default.createElement(
 	              'button',
 	              { type: 'submit', className: 'Todo-button' },
+	              _react2.default.createElement('i', { className: 'Todo-icon Todo-icon--add' }),
 	              'Add'
 	            )
 	          )
@@ -28053,6 +28054,7 @@
 	          'button',
 	          { id: 'check', className: 'Todo-button Todo-button--check',
 	            onClick: this.editItem },
+	          _react2.default.createElement('i', { className: 'Todo-icon Todo-icon--check' }),
 	          'Done'
 	        ),
 	        _react2.default.createElement(
@@ -28064,12 +28066,14 @@
 	          'button',
 	          { id: 'edit', className: 'Todo-button Todo-button--edit',
 	            onClick: this.editItem },
+	          _react2.default.createElement('i', { className: 'Todo-icon Todo-icon--edit' }),
 	          'Edit'
 	        ),
 	        _react2.default.createElement(
 	          'button',
 	          { id: 'delete', className: 'Todo-button Todo-button--delete',
 	            onClick: this.deleteItem },
+	          _react2.default.createElement('i', { className: 'Todo-icon Todo-icon--delete' }),
 	          'Delete'
 	        )
 	      );
@@ -28410,7 +28414,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".Todo {\n  width: 600px;\n  max-width: 80%;\n  background: #606873;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-family: sans-serif;\n  border-radius: 5px; }\n  .Todo h2 {\n    color: white;\n    text-align: center; }\n\n.Todo-inner {\n  margin: 40px; }\n\n.Todo-formItem {\n  position: relative; }\n\n.Todo-input {\n  padding: 20px 50px 20px 20px;\n  border: none;\n  width: 100%;\n  border-radius: 5px;\n  font-size: 16px;\n  line-height: 1.6;\n  margin: 10px 0; }\n\n.Todo-list {\n  padding: 0;\n  list-style: none; }\n\n.Todo-item {\n  padding: 20px;\n  background: white;\n  margin: 10px 0;\n  border-radius: 5px;\n  position: relative; }\n\n.Todo-text {\n  display: inline-block;\n  margin: 0 20px;\n  padding: 0 85px 0 30px;\n  line-height: 1.6; }\n\n.Todo-button {\n  color: white;\n  height: 50px;\n  width: 50px;\n  border-radius: 50%;\n  background: #48CEC1;\n  border: 3px solid #3ABDAF;\n  position: absolute;\n  right: 10px;\n  top: 50%;\n  transform: translateY(-50%); }\n\n.Todo-button--check {\n  left: 10px;\n  right: auto;\n  background: #FAB154;\n  border: 3px solid #F49B42; }\n\n.Todo-button--delete {\n  background: #ED5465;\n  border: 3px solid #D8434D; }\n\n.Todo-button--edit {\n  right: 65px;\n  background: #CB93EC;\n  border: 3px solid #B377D8; }\n", ""]);
+	exports.push([module.id, ".Todo {\n  width: 600px;\n  max-width: 80%;\n  background: #ddd;\n  color: #222;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-family: 'Open Sans', sans-serif;\n  border-radius: 5px; }\n  .Todo h2 {\n    text-align: center; }\n\n.Todo-inner {\n  margin: 40px; }\n\n.Todo-formItem {\n  position: relative; }\n\n.Todo-input {\n  padding: 20px 50px 20px 20px;\n  border: none;\n  width: 100%;\n  border-radius: 5px;\n  font-size: 16px;\n  line-height: 1.6;\n  margin: 10px 0; }\n\n.Todo-list {\n  padding: 0;\n  list-style: none; }\n\n.Todo-item {\n  padding: 20px;\n  background: white;\n  margin: 10px 0;\n  border-radius: 5px;\n  position: relative; }\n\n.Todo-text {\n  display: inline-block;\n  margin: 0 20px;\n  padding: 0 75px 0 30px;\n  line-height: 1.6; }\n\n.Todo-button {\n  color: white;\n  height: 40px;\n  width: 40px;\n  border-radius: 50%;\n  border: none;\n  background: #3BB1D9;\n  position: absolute;\n  right: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  font-size: 0;\n  cursor: pointer; }\n  .Todo-button:hover {\n    background: #2596bc; }\n\n.Todo-button--check {\n  left: 10px;\n  right: auto;\n  background: #DDD; }\n  .Todo-button--check:hover {\n    background: #3ABDAF; }\n\n.Todo-button--delete {\n  background: #ED5465; }\n  .Todo-button--delete:hover {\n    background: #e8263b; }\n\n.Todo-button--edit {\n  right: 55px;\n  background: #B377D8; }\n  .Todo-button--edit:hover {\n    background: #9d4fcd; }\n\n.Todo-icon {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 24px;\n  height: 24px; }\n\n.Todo-icon--add {\n  background-image: url(" + __webpack_require__(/*! ../images/add.svg */ 243) + ");\n  background-size: cover; }\n\n.Todo-icon--check {\n  background-image: url(" + __webpack_require__(/*! ../images/check.svg */ 242) + ");\n  background-size: cover; }\n\n.Todo-icon--edit {\n  background-image: url(" + __webpack_require__(/*! ../images/edit.svg */ 244) + ");\n  background-size: cover; }\n\n.Todo-icon--delete {\n  background-image: url(" + __webpack_require__(/*! ../images/remove.svg */ 245) + ");\n  background-size: cover; }\n", ""]);
 	
 	// exports
 
@@ -28730,6 +28734,42 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 242 */
+/*!**********************************!*\
+  !*** ./src/app/images/check.svg ***!
+  \**********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "img/img-d19856.svg";
+
+/***/ },
+/* 243 */
+/*!********************************!*\
+  !*** ./src/app/images/add.svg ***!
+  \********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "img/img-fab9f2.svg";
+
+/***/ },
+/* 244 */
+/*!*********************************!*\
+  !*** ./src/app/images/edit.svg ***!
+  \*********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "img/img-2263db.svg";
+
+/***/ },
+/* 245 */
+/*!***********************************!*\
+  !*** ./src/app/images/remove.svg ***!
+  \***********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "img/img-ad4b93.svg";
 
 /***/ }
 /******/ ]);
