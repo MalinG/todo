@@ -28067,15 +28067,13 @@
 	      if (this.state.editing) {
 	        var val = this.refs.todoText.value;
 	        this.props.updateItem(this.props.id, val);
-	      } else {
-	        // TODO: fix focus on edit
-	        this.refs.todoText.focus();
-	        console.log('edit');
 	      }
 	
 	      this.setState({
 	        editing: this.state.editing ? false : true
 	      });
+	
+	      //this.refs.todoText.focus();
 	    }
 	  }, {
 	    key: 'deleteItem',
@@ -28084,9 +28082,17 @@
 	      this.props.deleteItem(this.props.id);
 	    }
 	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      if (this.state.editing) {
+	        this.refs.todoText.focus();
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      //console.log(this.state.editing);
+	      console.log('rend');
+	
 	      var editMode = this.state.editing ? '' : 'disabled';
 	      var buttonClasses = this.state.editing ? 'Todo-button Todo-button--update' : 'Todo-button Todo-button--edit';
 	      var iconClasses = this.state.editing ? 'Todo-icon Todo-icon--update' : 'Todo-icon Todo-icon--edit';
@@ -28102,7 +28108,7 @@
 	          'Done'
 	        ),
 	        _react2.default.createElement('input', { ref: 'todoText', type: 'text', disabled: editMode,
-	          className: 'Todo-text', defaultValue: this.props.text }),
+	          className: 'Todo-text', autoFocus: true, defaultValue: this.props.text }),
 	        _react2.default.createElement(
 	          'button',
 	          { ref: 'editButton', id: 'edit', className: buttonClasses,
@@ -28427,7 +28433,7 @@
 	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/sass-loader!./Todo.scss */ 239);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 245)(content, {});
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 246)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -28455,7 +28461,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".Todo {\n  width: 600px;\n  max-width: 80%;\n  background: #ddd;\n  color: #222;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-family: 'Open Sans', sans-serif;\n  border-radius: 5px; }\n  .Todo h2 {\n    text-align: center; }\n\n.Todo-inner {\n  margin: 40px; }\n\n.Todo-formItem {\n  position: relative; }\n\n.Todo-input {\n  padding: 20px 50px 20px 20px;\n  border: none;\n  width: 100%;\n  border-radius: 5px;\n  font-size: 1em;\n  line-height: 1.6;\n  margin: 10px 0; }\n\n.Todo-list {\n  padding: 0;\n  list-style: none; }\n\n.Todo-item {\n  padding: 20px 105px 20px 60px;\n  background: white;\n  margin: 10px 0;\n  border-radius: 5px;\n  position: relative; }\n\n.Todo-item--checked {\n  background: rgba(255, 255, 255, 0.5); }\n\n.Todo-text {\n  line-height: 1.6;\n  font-size: 1em;\n  width: 100%;\n  border: none;\n  background: none; }\n  .Todo-item--checked .Todo-text {\n    color: #999;\n    font-style: italic; }\n\n.Todo-button {\n  color: white;\n  height: 40px;\n  width: 40px;\n  border-radius: 50%;\n  border: none;\n  background: #3BB1D9;\n  position: absolute;\n  right: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  font-size: 0;\n  cursor: pointer; }\n  .Todo-button:hover {\n    background: #2596bc; }\n\n.Todo-button--check {\n  left: 10px;\n  right: auto;\n  background: #DDD; }\n  .Todo-button--check:hover {\n    background: #3ABDAF; }\n  .Todo-item--checked .Todo-button--check {\n    background: #3ABDAF; }\n\n.Todo-button--delete {\n  background: #ED5465; }\n  .Todo-button--delete:hover {\n    background: #e8263b; }\n\n.Todo-button--edit {\n  right: 55px;\n  background: #B377D8; }\n  .Todo-button--edit:hover {\n    background: #9d4fcd; }\n  .Todo-item--checked .Todo-button--edit {\n    display: none; }\n\n.Todo-button--update {\n  right: 55px; }\n\n.Todo-icon {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 24px;\n  height: 24px; }\n\n.Todo-icon--add {\n  background-image: url(" + __webpack_require__(/*! ../images/add.svg */ 241) + ");\n  background-size: cover; }\n\n.Todo-icon--check {\n  background-image: url(" + __webpack_require__(/*! ../images/check.svg */ 242) + ");\n  background-size: cover; }\n\n.Todo-icon--edit {\n  background-image: url(" + __webpack_require__(/*! ../images/edit.svg */ 243) + ");\n  background-size: cover; }\n\n.Todo-icon--delete {\n  background-image: url(" + __webpack_require__(/*! ../images/remove.svg */ 244) + ");\n  background-size: cover; }\n\n.Todo-icon--update {\n  background-image: url(" + __webpack_require__(/*! ../images/save.svg */ 246) + ");\n  background-size: cover; }\n", ""]);
+	exports.push([module.id, ".Todo {\n  width: 600px;\n  max-width: 80%;\n  background: #ddd;\n  color: #222;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-family: 'Open Sans', sans-serif;\n  border-radius: 5px; }\n  .Todo h2 {\n    text-align: center; }\n\n.Todo-inner {\n  margin: 40px; }\n\n.Todo-formItem {\n  position: relative; }\n\n.Todo-input {\n  padding: 20px 50px 20px 20px;\n  border: none;\n  width: 100%;\n  border-radius: 5px;\n  font-size: 1em;\n  line-height: 1.6;\n  margin: 10px 0; }\n\n.Todo-list {\n  padding: 0;\n  list-style: none; }\n\n.Todo-item {\n  padding: 20px 105px 20px 60px;\n  background: white;\n  margin: 10px 0;\n  border-radius: 5px;\n  position: relative; }\n\n.Todo-item--checked {\n  background: rgba(255, 255, 255, 0.5); }\n\n.Todo-text {\n  line-height: 1.6;\n  font-size: 1em;\n  width: 100%;\n  border: none;\n  background: none; }\n  .Todo-item--checked .Todo-text {\n    color: #999;\n    font-style: italic; }\n\n.Todo-button {\n  color: white;\n  height: 40px;\n  width: 40px;\n  border-radius: 50%;\n  border: none;\n  background: #3BB1D9;\n  position: absolute;\n  right: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  font-size: 0;\n  cursor: pointer; }\n  .Todo-button:hover {\n    background: #2596bc; }\n\n.Todo-button--check {\n  left: 10px;\n  right: auto;\n  background: #DDD; }\n  .Todo-button--check:hover {\n    background: #3ABDAF; }\n  .Todo-item--checked .Todo-button--check {\n    background: #3ABDAF; }\n\n.Todo-button--delete {\n  background: #ED5465; }\n  .Todo-button--delete:hover {\n    background: #e8263b; }\n\n.Todo-button--edit {\n  right: 55px;\n  background: #B377D8; }\n  .Todo-button--edit:hover {\n    background: #9d4fcd; }\n  .Todo-item--checked .Todo-button--edit {\n    display: none; }\n\n.Todo-button--update {\n  right: 55px; }\n\n.Todo-icon {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 24px;\n  height: 24px; }\n\n.Todo-icon--add {\n  background-image: url(" + __webpack_require__(/*! ../images/add.svg */ 241) + ");\n  background-size: cover; }\n\n.Todo-icon--check {\n  background-image: url(" + __webpack_require__(/*! ../images/check.svg */ 242) + ");\n  background-size: cover; }\n\n.Todo-icon--edit {\n  background-image: url(" + __webpack_require__(/*! ../images/edit.svg */ 243) + ");\n  background-size: cover; }\n\n.Todo-icon--delete {\n  background-image: url(" + __webpack_require__(/*! ../images/remove.svg */ 244) + ");\n  background-size: cover; }\n\n.Todo-icon--update {\n  background-image: url(" + __webpack_require__(/*! ../images/save.svg */ 245) + ");\n  background-size: cover; }\n", ""]);
 	
 	// exports
 
@@ -28557,6 +28563,15 @@
 
 /***/ },
 /* 245 */
+/*!*********************************!*\
+  !*** ./src/app/images/save.svg ***!
+  \*********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "img/img-cc3cd9.svg";
+
+/***/ },
+/* 246 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
@@ -28811,15 +28826,6 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
-
-/***/ },
-/* 246 */
-/*!*********************************!*\
-  !*** ./src/app/images/save.svg ***!
-  \*********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "img/img-cc3cd9.svg";
 
 /***/ }
 /******/ ]);

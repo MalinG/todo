@@ -23,15 +23,13 @@ class TodoItem extends React.Component {
     if(this.state.editing) {
       let val = this.refs.todoText.value;
       this.props.updateItem(this.props.id, val);
-    } else {
-      // TODO: fix focus on edit
-      this.refs.todoText.focus();
-        console.log('edit');
     }
 
     this.setState({
       editing: (this.state.editing) ? false : true
     });
+
+    //this.refs.todoText.focus();
   }
 
   deleteItem () {
@@ -39,9 +37,16 @@ class TodoItem extends React.Component {
     this.props.deleteItem(this.props.id);
   }
 
+  componentDidUpdate () {
+    if(this.state.editing) {
+      this.refs.todoText.focus();
+    }
+
+  }
 
   render() {
-    //console.log(this.state.editing);
+    console.log('rend');
+
     let editMode = (this.state.editing) ? '' : 'disabled';
     let buttonClasses = (this.state.editing) ? 'Todo-button Todo-button--update' : 'Todo-button Todo-button--edit';
     let iconClasses = (this.state.editing) ? 'Todo-icon Todo-icon--update' : 'Todo-icon Todo-icon--edit';
@@ -53,7 +58,7 @@ class TodoItem extends React.Component {
           Done
         </button>
         <input ref="todoText" type="text" disabled={editMode}
-          className="Todo-text" defaultValue={this.props.text} />
+          className="Todo-text" autoFocus defaultValue={this.props.text} />
         <button ref="editButton" id="edit" className={buttonClasses}
           onClick={this.editItem}><i className={iconClasses}></i>
           Edit
@@ -63,7 +68,7 @@ class TodoItem extends React.Component {
           Delete
         </button>
       </li>
-    );
+    )
   }
 
 }
