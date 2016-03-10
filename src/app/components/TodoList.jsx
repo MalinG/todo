@@ -19,6 +19,7 @@ class TodoList extends React.Component {
                       text={item.text}
                       checked={item.checked}
                       checkItem={this.props.checkItem}
+                      updateItem={this.props.updateItem}
                       deleteItem={this.props.deleteItem} />
       );
     }.bind(this));

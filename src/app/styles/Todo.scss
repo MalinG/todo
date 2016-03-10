@@ -11,7 +11,6 @@
   border-radius: 5px;
 
   h2 {
-    //color: white;
     text-align: center;
   }
 }
@@ -40,7 +39,7 @@
 }
 
 .Todo-item {
-  padding: 20px;
+  padding: 20px 105px 20px 60px;
   background: white;
   margin: 10px 0;
   border-radius: 5px;
@@ -52,12 +51,11 @@
 }
 
 .Todo-text {
-  margin: 0 20px;
-  padding: 0 75px 0 30px;
   line-height: 1.6;
   font-size: 1em;
   width: 100%;
   border: none;
+  background: none;
 
   .Todo-item--checked & {
     color: #999;
@@ -123,6 +121,10 @@
 
 }
 
+.Todo-button--update {
+  right: 55px;
+}
+
 .Todo-icon {
   position: absolute;
   top: 50%;
@@ -149,5 +151,10 @@
 
 .Todo-icon--delete {
   background-image: url(../images/remove.svg);
+  background-size: cover;
+}
+
+.Todo-icon--update {
+  background-image: url(../images/save.svg);
   background-size: cover;
 }

@@ -47,14 +47,12 @@ class Todo extends React.Component {
     var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos');
     dataRef.push(item);
 
-    this.loadTodos();
+    //this.loadTodos();
   }
 
   deleteItem (id) {
     var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos/' + id);
-
     dataRef.remove();
-    this.loadTodos();
   }
 
   checkItem (id, val) {
@@ -62,12 +60,20 @@ class Todo extends React.Component {
     dataRef.update({checked: val});
   }
 
+  updateItem(id, val) {
+    var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos/' + id);
+    dataRef.update({text: val});
+  }
+
   render() {
     return (
       <div className="Todo-inner">
         <h2>Stuff to get done</h2>
         <TodoForm addItem={this.addItem} />
-        <TodoList items={this.state.items} deleteItem={this.deleteItem} checkItem={this.checkItem}/>
+        <TodoList items={this.state.items}
+                  deleteItem={this.deleteItem}
+                  updateItem={this.updateItem} 
+                  checkItem={this.checkItem} />
       </div>
     );
   }
