@@ -4,6 +4,8 @@ class TodoItem extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log(props);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   editItem () {
@@ -12,14 +14,17 @@ class TodoItem extends React.Component {
 
   deleteItem () {
     console.log('delete');
+    //console.log(this.props);
+    this.props.deleteItem(this.props.id);
   }
 
   render() {
+
     return (
-      <li key={this.props.key} className="TodoItem">
+      <li key={this.props.key} className="Todo-item">
         <button id="check" className="Todo-button Todo-button--check"
           onClick={this.editItem}>Done</button>
-        <h4>{this.props.text}</h4>
+        <span className="Todo-text">{this.props.text}</span>
         <button id="edit" className="Todo-button Todo-button--edit"
           onClick={this.editItem}>Edit</button>
         <button id="delete" className="Todo-button Todo-button--delete"

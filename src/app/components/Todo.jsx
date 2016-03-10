@@ -9,6 +9,7 @@ class Todo extends React.Component {
     super();
     this.addItem = this.addItem.bind(this);
     this.loadTodos = this.loadTodos.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
     this.state = {
       items: []
     };
@@ -24,7 +25,8 @@ class Todo extends React.Component {
       var itemList = [];
       snapshot.forEach(function(item) {
         var key = item.key();
-        var item = item.val();
+
+        item = item.val();
         item.key = key;
         itemList.push(item);
 
@@ -34,26 +36,11 @@ class Todo extends React.Component {
         items: itemList
       });
     });
-
-
-
-
   }
 
   componentWillMount() {
     this.loadTodos();
-
   }
-
-  // componentWillMount() {
-  //   this.firebaseRef = new Firebase("https://fiery-inferno-3889.firebaseio.com/todos");
-  //   this.firebaseRef.on("child_added", function(dataSnapshot) {
-  //     this.items.push(dataSnapshot.val());
-  //     this.setState({
-  //       items: this.items
-  //     });
-  //   }.bind(this));
-  // }
 
   addItem (item) {
     var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos');
@@ -62,12 +49,20 @@ class Todo extends React.Component {
     this.loadTodos();
   }
 
+  deleteItem (id) {
+    console.log(id);
+    var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos/' + id);
+
+    dataRef.remove();
+    this.loadTodos();
+  }
+
   render() {
     return (
-      <div>
+      <div className="Todo-inner">
         <h2>Todo List</h2>
         <TodoForm addItem={this.addItem} />
-        <TodoList items={this.state.items} />
+        <TodoList items={this.state.items} deleteItem={this.deleteItem}/>
       </div>
     );
   }

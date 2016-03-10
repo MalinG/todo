@@ -6,7 +6,7 @@ require('./styles/Todo.scss');
 class App extends React.Component {
   render () {
     return (
-      <div className="Court">
+      <div className="Todo">
         <Todo />
       </div>
     );

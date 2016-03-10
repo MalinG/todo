@@ -1,3 +1,87 @@
 .Todo {
+  width: 600px;
+  max-width: 80%;
+  background: #606873;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: sans-serif;
+  border-radius: 5px;
 
+  h2 {
+    color: white;
+    text-align: center;
+    margin: 0
+  }
+}
+
+.Todo-inner {
+  margin: 40px;
+}
+
+.Todo-formItem {
+  position: relative;
+}
+
+.Todo-input {
+  padding: 20px 50px 20px 20px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.Todo-list {
+  padding: 0;
+  list-style: none;
+}
+
+.Todo-item {
+  padding: 20px;
+  background: white;
+  margin: 10px 0;
+  border-radius: 5px;
+  position: relative;
+}
+
+.Todo-text {
+  display: inline-block;
+  margin: 0 20px;
+  padding: 0 85px 0 30px;
+  line-height: 1.6;
+}
+
+.Todo-button {
+  color: white;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: #48CEC1;
+  border: 3px solid #3ABDAF;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%)
+
+}
+
+.Todo-button--check {
+  left: 10px;
+  right: auto;
+  background: #FAB154;
+  border: 3px solid #F49B42;
+}
+
+.Todo-button--delete {
+  background: #ED5465;
+  border: 3px solid #D8434D;
+}
+
+.Todo-button--edit {
+  right: 65px;
+  background: #CB93EC;
+  border: 3px solid #B377D8;
 }
