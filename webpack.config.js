@@ -7,14 +7,7 @@ var IMG_DIR = path.resolve(__dirname, 'src/img');
 
 var config = {
   devtool: 'eval',
-  entry: [
-    // For hot style updates
-    //'webpack/hot/dev-server',
-    // The script refreshing the browser on none hot updates
-    //'webpack-dev-server/client?http://localhost:8080',
-
-    // Our application
-  APP_DIR + '/index.jsx'],
+  entry: [APP_DIR + '/index.jsx'],
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
