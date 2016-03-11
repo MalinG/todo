@@ -4,9 +4,9 @@ import TodoList from './TodoList.jsx';
 import Firebase from 'firebase';
 
 class Todo extends React.Component {
-
   constructor() {
     super();
+    // Bind this to methods.
     this.addItem = this.addItem.bind(this);
     this.loadTodos = this.loadTodos.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
@@ -17,62 +17,65 @@ class Todo extends React.Component {
   }
 
   loadTodos() {
-    console.log('loading');
+    // Set firebase reference
     var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos');
-    // TODO: Fix binding
-    var that = this;
 
     dataRef.on('value', function(snapshot) {
       var itemList = [];
+      // Loop through all items in database and add to itemList array
       snapshot.forEach(function(item) {
         var key = item.key();
-
+        // Assign value and unique key to each item
         item = item.val();
         item.key = key;
         itemList.push(item);
-
       });
 
-      that.setState({
+      // Update component state with the items form the database
+      this.setState({
         items: itemList
       });
-    });
+    }.bind(this));
   }
 
   componentWillMount() {
+    // Load todo items from firebase.
     this.loadTodos();
   }
 
   addItem (item) {
+    // Add to database. Triggered from TodoForm component.
     var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos');
     dataRef.push(item);
-
-    //this.loadTodos();
   }
 
   deleteItem (id) {
+    // Delete from database. Triggered from TodoItem component.
     var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos/' + id);
     dataRef.remove();
   }
 
   checkItem (id, val) {
+    // Update checked status. Triggered from TodoItem component.
     var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos/' + id);
     dataRef.update({checked: val});
   }
 
   updateItem(id, val) {
+    // Update edited todo item text value. Triggered from TodoItem component.
     var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos/' + id);
     dataRef.update({text: val});
   }
 
   render() {
+    // Pass props to subcomponents
     return (
       <div className="Todo-inner">
         <h2>Stuff to get done</h2>
         <TodoForm addItem={this.addItem} />
         <TodoList items={this.state.items}
                   deleteItem={this.deleteItem}
-                  updateItem={this.updateItem} 
+                  updateItem={this.updateItem}
                   checkItem={this.checkItem} />
       </div>
     );

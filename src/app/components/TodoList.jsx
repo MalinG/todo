@@ -5,14 +5,11 @@ class TodoList extends React.Component {
 
   constructor(props) {
     super(props);
-    //this.createItems = this.createItems.bind(this);
-
   }
 
   render() {
-
+    // Loop through all items and pass props to TodoItem subcomponent.
     let listItems = this.props.items.map(function (item) {
-
       return (
             <TodoItem key={item.key}
                       id={item.key}
