@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Todo from './components/Todo.jsx';
-require('./styles/Todo.scss');
+import './styles/Todo.scss';
 
 class App extends React.Component {
   render () {

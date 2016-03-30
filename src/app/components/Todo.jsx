@@ -3,9 +3,12 @@ import TodoForm from './TodoForm.jsx';
 import TodoList from './TodoList.jsx';
 import Firebase from 'firebase';
 
+const dataUrl = 'https://fiery-inferno-3889.firebaseio.com/todos';
+
 class Todo extends React.Component {
   constructor() {
     super();
+
     // Bind this to methods.
     this.addItem = this.addItem.bind(this);
     this.loadTodos = this.loadTodos.bind(this);
@@ -17,8 +20,9 @@ class Todo extends React.Component {
   }
 
   loadTodos() {
+
     // Set firebase reference
-    var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos');
+    var dataRef = new Firebase(dataUrl);
 
     dataRef.on('value', function(snapshot) {
       var itemList = [];
@@ -45,25 +49,25 @@ class Todo extends React.Component {
 
   addItem (item) {
     // Add to database. Triggered from TodoForm component.
-    var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos');
+    var dataRef = new Firebase(dataUrl);
     dataRef.push(item);
   }
 
   deleteItem (id) {
     // Delete from database. Triggered from TodoItem component.
-    var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos/' + id);
+    var dataRef = new Firebase(dataUrl + id);
     dataRef.remove();
   }
 
   checkItem (id, val) {
     // Update checked status. Triggered from TodoItem component.
-    var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos/' + id);
+    var dataRef = new Firebase(dataUrl + id);
     dataRef.update({checked: val});
   }
 
   updateItem(id, val) {
     // Update edited todo item text value. Triggered from TodoItem component.
-    var dataRef = new Firebase('https://fiery-inferno-3889.firebaseio.com/todos/' + id);
+    var dataRef = new Firebase(dataUrl + id);
     dataRef.update({text: val});
   }
 
