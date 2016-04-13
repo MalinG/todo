@@ -3,7 +3,7 @@ import TodoForm from './TodoForm.jsx';
 import TodoList from './TodoList.jsx';
 import Firebase from 'firebase';
 
-const dataUrl = 'https://fiery-inferno-3889.firebaseio.com/todos';
+const dataUrl = '[REPLACE WITH YOUR FIREBASE URL]';
 
 class Todo extends React.Component {
   constructor() {
